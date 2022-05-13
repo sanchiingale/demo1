@@ -34,10 +34,21 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         run: mvn -B package --file pom.xml
-      
-      - name: Azure WebApp
-        uses: Azure/webapps-deploy@v2
+      - name: ACR login
+        uses: azure/docker-login@v1
         with:
-          app-name: appmyapp
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: my/target/*.jar
+          login-server: sanchicontainerregi.azurecr.io
+          username: sanchicontainerregi
+          password: 2g0EbKlPtEowbwpCU==XUOAvWf/XFT9M
+
+      - name: Docker build and Push
+        run: |
+            docker build . -t sanchicontainerregi.azurecr.io/image1:latest
+            docker push  sanchicontainerregi.azurecr.io/image1:latest
+      
+#       - name: Azure WebApp
+#         uses: Azure/webapps-deploy@v2
+#         with:
+#           app-name: appmyapp
+#           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+#           package: my/target/*.jar
