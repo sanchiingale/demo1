@@ -45,6 +45,9 @@ jobs:
         run: |
             docker build . -t sanchicontainerregi.azurecr.io/image1:latest
             docker push  sanchicontainerregi.azurecr.io/image1:latest
+      - name: Azure login
+        run: |
+            az login -u sanchi0802@hotmail.com -p sanchi@0802
       
 #       - name: Azure WebApp
 #         uses: Azure/webapps-deploy@v2
