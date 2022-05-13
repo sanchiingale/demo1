@@ -37,17 +37,17 @@ jobs:
       - name: ACR login
         uses: azure/docker-login@v1
         with:
-          login-server: sanchicontainerregi.azurecr.io
-          username: sanchicontainerregi
-          password: 2g0EbKlPtEowbwpCU==XUOAvWf/XFT9M
+          login-server: sanchicontainerregi0802.azurecr.io
+          username: sanchicontainerregi0802
+          password: GSpf92KnMXl86uv16B+oEjp2ipAyJpwk
 
       - name: Docker build and Push
         run: |
-            docker build . -t sanchicontainerregi.azurecr.io/image1:latest
-            docker push  sanchicontainerregi.azurecr.io/image1:latest
-      - name: Azure login
-        run: |
-            az login -u sanchi0802@hotmail.com -p sanchi@0802
+            docker build . -t sanchicontainerregi0802.azurecr.io/image1:latest
+            docker push  sanchicontainerregi0802.azurecr.io/image1:latest
+#       - name: Azure login
+#         run: |
+#             az login -u sanchi0802@hotmail.com -p sanchi@0802
       
 #       - name: Azure WebApp
 #         uses: Azure/webapps-deploy@v2
